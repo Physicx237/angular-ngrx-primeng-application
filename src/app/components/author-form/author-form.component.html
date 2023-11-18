@@ -1,0 +1,30 @@
+<form
+  class="author-form"
+  [formGroup]="authorForm"
+  (ngSubmit)="onSubmit()"
+  novalidate
+>
+  <span class="p-float-label">
+    <input pInputText id="lastName" formControlName="lastName" />
+    <label htmlFor="lastName">Фамилия</label>
+  </span>
+
+  <span class="p-float-label">
+    <input pInputText id="firstName" formControlName="firstName" />
+    <label htmlFor="firstName">Имя</label>
+  </span>
+
+  <span class="p-float-label">
+    <input pInputText id="patronymic" formControlName="patronymic" />
+    <label htmlFor="patronymic">Отчество</label>
+  </span>
+
+  <p-inputMask
+    mask="99.99.9999"
+    id="dateOfBirth"
+    placeholder="Дата рождения"
+    formControlName="dateOfBirth"
+  />
+
+  <p-button type="submit" label="Добавить автора"></p-button>
+</form>

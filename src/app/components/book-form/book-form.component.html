@@ -1,0 +1,26 @@
+<form
+  class="book-form"
+  [formGroup]="bookForm"
+  (ngSubmit)="onSubmit()"
+  novalidate
+>
+  <span class="p-float-label">
+    <input pInputText id="title" formControlName="title" />
+    <label htmlFor="title">Название</label>
+  </span>
+
+  <p-dropdown
+    [options]="authors$ | async"
+    placeholder="Автор"
+    formControlName="author"
+  ></p-dropdown>
+
+  <span class="p-float-label">
+    <input pInputText id="bookmaker" formControlName="bookmaker" />
+    <label htmlFor="bookmaker">Издатель</label>
+  </span>
+
+  <p-inputMask mask="9999" id="year" formControlName="year" placeholder="Год" />
+
+  <p-button type="submit" label="Добавить книгу"></p-button>
+</form>

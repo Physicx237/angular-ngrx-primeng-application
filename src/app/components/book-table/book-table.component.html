@@ -1,0 +1,43 @@
+<div class="wrapper">
+  <app-book-form></app-book-form>
+
+  <div class="card">
+    <p-table
+      [value]="books"
+      styleClass="p-datatable-gridlines"
+      [tableStyle]="{ 'min-width': '60rem' }"
+    >
+      <ng-template pTemplate="caption">
+        <div style="display: flex; justify-content: center">
+          <div>Книги</div>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th style="width: 20%">ID</th>
+          <th pSortableColumn="author" style="width: 20%">
+            Автор <p-sortIcon field="author"></p-sortIcon>
+          </th>
+          <th pSortableColumn="title" style="width: 20%">
+            Название <p-sortIcon field="title"></p-sortIcon>
+          </th>
+          <th pSortableColumn="bookmaker" style="width: 20%">
+            Издатель <p-sortIcon field="bookmaker"></p-sortIcon>
+          </th>
+          <th pSortableColumn="year" style="width: 20%">
+            Год <p-sortIcon field="year"></p-sortIcon>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-book>
+        <tr>
+          <td>{{ book.id }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.title }}</td>
+          <td>{{ book.bookmaker }}</td>
+          <td>{{ book.year }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
