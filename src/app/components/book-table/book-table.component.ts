@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { BookFormComponent } from '../book-form/book-form.component';
 import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
-import { Observable, filter } from 'rxjs';
+import { filter } from 'rxjs';
 import { Store } from '@ngrx/store';
 import * as GetBooksActions from 'src/app/domain/store/actions/get-books.action';
 import { selectFeatureBooks } from 'src/app/domain/store/selectors/book.selector';

@@ -3,7 +3,7 @@ import { AuthorFormComponent } from '../author-form/author-form.component';
 import { TableModule } from 'primeng/table';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy } from '@angular/core';
-import { OperatorFunction, filter } from 'rxjs';
+import { filter } from 'rxjs';
 import { Store } from '@ngrx/store';
 import * as GetAuthorsActions from 'src/app/domain/store/actions/get-authors.action';
 import { selectFeatureAuthors } from 'src/app/domain/store/selectors/author.selector';
