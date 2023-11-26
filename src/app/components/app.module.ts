@@ -18,6 +18,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { getBooksReducer } from '../domain/store/reducers/get-books.reducer';
 import { BooksEffect } from '../domain/store/effects/book.effect';
 import { BookService } from '../adapters/book.service';
+import { AUTHOR_SERVICE, BOOK_SERVICE } from './app.config';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,7 +35,16 @@ import { BookService } from '../adapters/book.service';
     AuthorTableComponent,
     BookTableComponent,
   ],
-  providers: [AuthorService, BookService],
+  providers: [
+    {
+      provide: AUTHOR_SERVICE,
+      useClass: AuthorService,
+    },
+    {
+      provide: BOOK_SERVICE,
+      useClass: BookService,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

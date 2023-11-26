@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import {
   FormGroup,
   FormControl,
@@ -17,6 +17,8 @@ import * as GetAuthorsActions from 'src/app/domain/store/actions/get-authors.act
 import * as GetBooksActions from 'src/app/domain/store/actions/get-books.action';
 import { selectFeatureAuthors } from 'src/app/domain/store/selectors/author.selector';
 import { AuthorStateType } from '../types/author-state.type';
+import { BookPort } from 'src/app/domain/ports/book.interface';
+import { BOOK_SERVICE } from '../app.config';
 
 @Component({
   selector: 'app-book-form',
@@ -64,7 +66,7 @@ export class BookFormComponent implements OnInit {
   authors$: Observable<any>;
 
   constructor(
-    private bookService: BookService,
+    @Inject(BOOK_SERVICE) private bookService: BookPort,
     private store: Store<AuthorStateType>
   ) {
     this.authors$ = this.store

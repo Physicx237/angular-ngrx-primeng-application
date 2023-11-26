@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import {
   FormGroup,
   FormControl,
@@ -8,10 +8,11 @@ import {
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputMaskModule } from 'primeng/inputmask';
-import { AuthorService } from 'src/app/adapters/author.service';
 import { Store } from '@ngrx/store';
 import * as GetAuthorsActions from 'src/app/domain/store/actions/get-authors.action';
 import { AuthorStateType } from '../types/author-state.type';
+import { AUTHOR_SERVICE } from '../app.config';
+import { AuthorPort } from 'src/app/domain/ports/author.interface';
 
 @Component({
   selector: 'app-author-form',
@@ -58,7 +59,7 @@ export class AuthorFormComponent {
   });
 
   constructor(
-    private authorService: AuthorService,
+    @Inject(AUTHOR_SERVICE) private authorService: AuthorPort,
     private store: Store<AuthorStateType>
   ) {
     this.store.select((state) => state.authors.authors);
