@@ -27,14 +27,14 @@ export class AuthorService implements AuthorPort {
         newAuthors.push(...authors, { id: authorId, ...author });
         localStorage.setItem('authors', JSON.stringify(newAuthors));
       }
+
+      return;
     }
 
-    if (!data) {
-      const authors: Author[] = [];
+    const authors: Author[] = [];
 
-      authors.push({ id: authorId, ...author });
-      localStorage.setItem('authors', JSON.stringify(authors));
-    }
+    authors.push({ id: authorId, ...author });
+    localStorage.setItem('authors', JSON.stringify(authors));
   }
 
   getAuthors() {

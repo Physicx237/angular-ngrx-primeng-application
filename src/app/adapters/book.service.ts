@@ -17,14 +17,14 @@ export class BookService implements BookPort {
 
       newBooks.push(...books, { id: bookId, ...book });
       localStorage.setItem('books', JSON.stringify(newBooks));
+
+      return;
     }
 
-    if (!data) {
-      const books: Book[] = [];
+    const books: Book[] = [];
 
-      books.push({ id: bookId, ...book });
-      localStorage.setItem('books', JSON.stringify(books));
-    }
+    books.push({ id: bookId, ...book });
+    localStorage.setItem('books', JSON.stringify(books));
   }
 
   getBooks() {
