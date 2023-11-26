@@ -10,7 +10,6 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { CommonModule } from '@angular/common';
 import { InputMaskModule } from 'primeng/inputmask';
-import { BookService } from 'src/app/adapters/book.service';
 import { Store } from '@ngrx/store';
 import { Observable, map } from 'rxjs';
 import * as GetAuthorsActions from 'src/app/domain/store/actions/get-authors.action';
